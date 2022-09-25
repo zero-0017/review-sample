@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shop.name %>
+</p>
+
+<%= link_to 'Edit', edit_shop_path(@shop) %> |
+<%= link_to 'Back', shops_path %>
+
+<%= form_for @review do |f| %>
+  <%= f.hidden_field :shop_id, value: @shop.id %>
+  <%= f.text_field :body, class: "text-field" %>
+  <%= f.submit '投稿', class: "submit-btn" %>
+<% end %>
+
+<% @reviews.each do |r| %>
+  <%= r.body %>
+<% end %>
